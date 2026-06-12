@@ -90,6 +90,7 @@ class Enemy(arcade.SpriteSolidColor):
         end_angle = math.radians(self.facing_angle + self.fov / 2)
         
         ex, ey = self.center_x, self.center_y
+        # pontas do cone
         p1 = (ex, ey)
         p2 = (ex + self.vision_radius * math.cos(start_angle), ey + self.vision_radius * math.sin(start_angle))
         p3 = (ex + self.vision_radius * math.cos(end_angle), ey + self.vision_radius * math.sin(end_angle))
@@ -217,7 +218,7 @@ class MeuJogo(arcade.Window):
         """Chamado quando uma tecla é pressionada."""
         if self.game_over:
             if key == arcade.key.ENTER or key == arcade.key.RETURN:
-                self.setup()  # Reinicia o jogo completamente
+                self.setup() 
             return
 
         if key == arcade.key.UP or key == arcade.key.W:
